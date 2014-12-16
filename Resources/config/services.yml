@@ -1,0 +1,59 @@
+parameters:
+
+    kolekti_filesBundle.path.entity: Kolekti\FilesBundle\Entity\Path
+    kolekti_filesBundle.filePath.entity: Kolekti\FilesBundle\Entity\FilePath
+
+    kolekti_filesBundle.handler.class: Kolekti\FilesBundle\Model\FilesHandler
+    kolekti_filesBundle.entitiesBuilder.class: Kolekti\FilesBundle\Model\FilesEntitiesBuilder
+    kolekti_filesBundle.fileMaster.class: Kolekti\FilesBundle\Model\FileMaster
+    kolekti_filesBundle.filesContentProcessing.class: Kolekti\FilesBundle\Model\FilesContentProcessing
+    kolekti_filesBundle.jsTreeInteract.class: Kolekti\FilesBundle\Model\JsTreeInteract
+
+    kolekti_filesBundle.pathMaster.class: Kolekti\FilesBundle\Model\PathMaster
+    kolekti_filesBundle.pathHandler.class: Kolekti\FilesBundle\Model\PathHandler
+    kolekti_filesBundle.jsTreeHandler.class: Kolekti\FilesBundle\Model\JsTreeHandler
+
+    kolekti_filesBundle.jsTreeBasePathChar: '#'
+    kolekti_filesBundle.jsTreeDirectoriesToSkip: ['.','..']
+
+    kolekti_filesBundle.defaultDirPermissions: 0755
+
+services:
+    kolekti_filesBundle.handler:
+        class: %kolekti_filesBundle.handler.class%
+        arguments:
+          - @kolekti_filesBundle.fileMaster
+          - @kolekti_filesBundle.entitiesBuilder
+
+    kolekti_filesBundle.fileMaster:
+        class: %kolekti_filesBundle.fileMaster.class%
+
+    kolekti_filesBundle.pathHandler:
+        class: %kolekti_filesBundle.pathHandler.class%
+        arguments:
+            - @kolekti_filesBundle.pathMaster
+
+    kolekti_filesBundle.pathMaster:
+        class: %kolekti_filesBundle.pathMaster.class%
+        arguments:
+            - %kolekti_filesBundle.defaultDirPermissions%
+
+    kolekti_filesBundle.entitiesBuilder:
+        class: %kolekti_filesBundle.entitiesBuilder.class%
+
+    kolekti_filesBundle.filesContentProcessing:
+        class: %kolekti_filesBundle.filesContentProcessing.class%
+        arguments:
+            - @kolekti_filesBundle.fileMaster
+
+    kolekti_filesBundle.jsTreeInteract:
+        class: %kolekti_filesBundle.jsTreeInteract.class%
+
+    kolekti_filesBundle.jsTreeHandler:
+        class: %kolekti_filesBundle.jsTreeHandler.class%
+        arguments:
+            - @kolekti_filesBundle.handler
+            - @kolekti_filesBundle.pathHandler
+            - @kolekti_security.crypt
+            - %kolekti_filesBundle.jsTreeDirectoriesToSkip%
+            - %kolekti_filesBundle.jsTreeBasePathChar%

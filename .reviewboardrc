@@ -1,0 +1,3 @@
+REPOSITORY = "git@gitlab.services:parsingcorner/files-symfony2-bundle.git"
+REVIEWBOARD_URL = "http://reviewboard.services/reviews/"
+

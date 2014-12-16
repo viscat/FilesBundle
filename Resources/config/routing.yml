@@ -1,0 +1,7 @@
+kolekti_jsTree_getNode:
+    path:     /getNode
+    defaults: { _controller: KolektiFilesBundle:JsTree:getJsTreeNode }
+
+kolekti_jsTree_getNodeContent:
+    path:     /getNodeContent/{encryptedNodeId}
+    defaults: { _controller: KolektiFilesBundle:JsTree:getJsTreeNodeContent }
