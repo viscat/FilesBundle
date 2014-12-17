@@ -1,0 +1,31 @@
+{
+    "name": "parsing-corner/files-symfony2-bundle",
+    "license": "propietary",
+    "type": "bundle",
+    "homepage": "http://www.trovit.com",
+    "description": "Symfony2 Bundle to handle files",
+    "keywords": ["symfony2","bundle","files"],
+    "autoload": {
+        "psr-0": {
+            "": ""
+        }
+    },
+    "authors": [
+        {
+            "name": "Parsing Corner",
+            "email": "parsingcorner@trovit.com"
+        }
+    ],
+    "require": {
+        "php": "5.5.*",
+        "symfony/framework-bundle": "2.3.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.1.*",
+        "phpunit/php-invoker": "*",
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "minimum-stability": "stable"
+}
