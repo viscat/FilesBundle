@@ -1,5 +1,5 @@
 {
-    "name": "parsing-corner/files-symfony2-bundle",
+    "name": "parsingcorner/files-symfony2-bundle",
     "license": "propietary",
     "type": "bundle",
     "homepage": "http://www.trovit.com",
@@ -26,7 +26,7 @@
         "php": "5.5.*",
         "symfony/framework-bundle": "2.6.*",
         "symfony/finder": "2.6.*",
-        "parsingcorner/attribute-validation-symfony2-bundle": "dev-master"
+        "parsingcorner/attribute-validation-symfony2-bundle": "@dev"
     },
     "require-dev": {
         "phpunit/phpunit": "4.1.*",
