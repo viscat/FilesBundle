@@ -1,10 +1,9 @@
 <?php
 
-namespace Kolekti\FilesBundle\Tests\Model;
+namespace Parsingcorner\FilesBundle\Tests\Model;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class FilesEntitiesBuilderTest extends WebTestCase
+class FilesEntitiesBuilderTest extends IntegrationWebTestCase
 {
 
     private $_filesEntitiesBuilder;
@@ -16,7 +15,7 @@ class FilesEntitiesBuilderTest extends WebTestCase
     {
         $client = static::createClient();
         $this->_filesEntitiesBuilder = $client->getContainer()
-                                              ->get('kolekti_filesBundle.entitiesBuilder');
+                                              ->get('filesBundle.entitiesBuilder');
         $this->_setFileNameSamples();
         $this->_setPathSamples();
         $this->_setFullFilePathsSamples();
@@ -68,7 +67,7 @@ class FilesEntitiesBuilderTest extends WebTestCase
     }
 
     /**
-     * @expectedException Symfony\Component\HttpKernel\Exception\HttpException
+     * @expectedException \Symfony\Component\HttpKernel\Exception\HttpException
      */
     public function testBuildFileNameEntityException1()
     {
@@ -76,7 +75,7 @@ class FilesEntitiesBuilderTest extends WebTestCase
     }
 
     /**
-     * @expectedException Symfony\Component\HttpKernel\Exception\HttpException
+     * @expectedException \Symfony\Component\HttpKernel\Exception\HttpException
      */
     public function testBuildFileNameEntityException2()
     {
@@ -84,7 +83,7 @@ class FilesEntitiesBuilderTest extends WebTestCase
     }
 
     /**
-     * @expectedException Symfony\Component\HttpKernel\Exception\HttpException
+     * @expectedException \Symfony\Component\HttpKernel\Exception\HttpException
      */
     public function testBuildFileNameEntityException3()
     {
@@ -92,7 +91,7 @@ class FilesEntitiesBuilderTest extends WebTestCase
     }
 
     /**
-     * @expectedException Kolekti\FilesBundle\Exception\FilesEntitesBuilderException
+     * @expectedException \Parsingcorner\FilesBundle\Exception\FilesEntitesBuilderException
      */
     public function testBuildFilePathEntityException1()
     {
@@ -100,7 +99,7 @@ class FilesEntitiesBuilderTest extends WebTestCase
     }
 
     /**
-     * @expectedException Kolekti\FilesBundle\Exception\FilesEntitesBuilderException
+     * @expectedException \Parsingcorner\FilesBundle\Exception\FilesEntitesBuilderException
      */
     public function testBuildFilePathEntityException2()
     {

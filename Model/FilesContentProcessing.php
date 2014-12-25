@@ -1,8 +1,8 @@
 <?php
 
-namespace Kolekti\FilesBundle\Model;
+namespace Parsingcorner\FilesBundle\Model;
 
-use Kolekti\FilesBundle\Entity\FilePath;
+use Parsingcorner\FilesBundle\Entity\FilePath;
 
 /**
  * Model to processing the content of the files

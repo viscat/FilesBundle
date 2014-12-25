@@ -1,21 +1,21 @@
 <?php
 
-namespace Kolekti\FilesBundle\Tests\Model;
+namespace Parsingcorner\FilesBundle\Tests\Model;
 
-use Kolekti\FilesBundle\Model\FilesHandler;
+use Parsingcorner\FilesBundle\Model\FilesHandler;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class FilesHandlerTest extends WebTestCase
+class FilesHandlerTest extends IntegrationWebTestCase
 {
     private $_filesEntitiesBuilder;
 	private $_filePathEntity;
+
 
     protected function setUp()
     {
         $client = static::createClient();
         $this->_filesEntitiesBuilder = $client->getContainer()
-                                              ->get('kolekti_filesBundle.entitiesBuilder');
+                                              ->get('filesBundle.entitiesBuilder');
         $this->_filePathEntity = $this->_filesEntitiesBuilder
                                       ->buildFilePath('/foo/bar.php');
     }
@@ -27,7 +27,7 @@ class FilesHandlerTest extends WebTestCase
     }
 
     /**
-     * @expectedException Kolekti\FilesBundle\Exception\FilesHandlerException
+     * @expectedException \Parsingcorner\FilesBundle\Exception\FilesHandlerException
      */
     public function testCreateFileKo()
     {
@@ -42,7 +42,7 @@ class FilesHandlerTest extends WebTestCase
     }
     
     /**
-     * @expectedException Kolekti\FilesBundle\Exception\FilesHandlerException
+     * @expectedException \Parsingcorner\FilesBundle\Exception\FilesHandlerException
      */
     public function testReadFileKo()
     {
@@ -57,7 +57,7 @@ class FilesHandlerTest extends WebTestCase
     }
 
     /**
-     * @expectedException Kolekti\FilesBundle\Exception\FilesHandlerException
+     * @expectedException \Parsingcorner\FilesBundle\Exception\FilesHandlerException
      */
     public function testUpdateFileKo()
     {
@@ -72,7 +72,7 @@ class FilesHandlerTest extends WebTestCase
     }
 
     /**
-     * @expectedException Kolekti\FilesBundle\Exception\FilesHandlerException
+     * @expectedException \Parsingcorner\FilesBundle\Exception\FilesHandlerException
      */
     public function testDeleteFileKo()
     {
@@ -82,7 +82,7 @@ class FilesHandlerTest extends WebTestCase
 
     private function _setCreateFileOkFilesHandler()
     {
-        $filesMaster = $this->getMock('Kolekti\FilesBundle\Model\FileMaster');
+        $filesMaster = $this->getMock('Parsingcorner\FilesBundle\Model\FileMaster');
         $this->_fileExists($filesMaster, false);
         $this->_setContent($filesMaster, true);
 
@@ -91,7 +91,7 @@ class FilesHandlerTest extends WebTestCase
 
     private function _setCreateFileKoFilesHandler()
     {
-        $filesMaster = $this->getMock('Kolekti\FilesBundle\Model\FileMaster');
+        $filesMaster = $this->getMock('Parsingcorner\FilesBundle\Model\FileMaster');
         $this->_fileExists($filesMaster, true);
         $this->_setContent($filesMaster, false);
 
@@ -100,7 +100,7 @@ class FilesHandlerTest extends WebTestCase
 
     private function _setReadFileOkFilesHandler()
     {
-        $filesMaster = $this->getMock('Kolekti\FilesBundle\Model\FileMaster');
+        $filesMaster = $this->getMock('Parsingcorner\FilesBundle\Model\FileMaster');
         $this->_fileExists($filesMaster, true);
         $this->_readFile($filesMaster, 'foo');
 
@@ -117,7 +117,7 @@ class FilesHandlerTest extends WebTestCase
 
     private function _setReadFileKoFilesHandler()
     {
-        $filesMaster = $this->getMock('Kolekti\FilesBundle\Model\FileMaster');
+        $filesMaster = $this->getMock('Parsingcorner\FilesBundle\Model\FileMaster');
         $this->_fileExists($filesMaster, false);
         $this->_readFile($filesMaster, null);
         $this->_getFileStats($filesMaster, false);
@@ -127,7 +127,7 @@ class FilesHandlerTest extends WebTestCase
 
     private function _setUpdateFileOkFilesHandler()
     {
-        $filesMaster = $this->getMock('Kolekti\FilesBundle\Model\FileMaster');
+        $filesMaster = $this->getMock('Parsingcorner\FilesBundle\Model\FileMaster');
         $this->_fileExists($filesMaster, true);
         $this->_setContent($filesMaster, true);
 
@@ -136,7 +136,7 @@ class FilesHandlerTest extends WebTestCase
 
     private function _setUpdateFileKoFilesHandler()
     {
-        $filesMaster = $this->getMock('Kolekti\FilesBundle\Model\FileMaster');
+        $filesMaster = $this->getMock('Parsingcorner\FilesBundle\Model\FileMaster');
         $this->_fileExists($filesMaster, false);
         $this->_setContent($filesMaster, false);
 
@@ -145,7 +145,7 @@ class FilesHandlerTest extends WebTestCase
 
     private function _setDeleteFileFileOkFilesHandler()
     {
-        $filesMaster = $this->getMock('Kolekti\FilesBundle\Model\FileMaster');
+        $filesMaster = $this->getMock('Parsingcorner\FilesBundle\Model\FileMaster');
         $this->_removeFile($filesMaster, true);
 
         return new FilesHandler($filesMaster, $this->_filesEntitiesBuilder);
@@ -153,7 +153,7 @@ class FilesHandlerTest extends WebTestCase
 
     private function _setDeleteFileFileKoFilesHandler()
     {
-        $filesMaster = $this->getMock('Kolekti\FilesBundle\Model\FileMaster');
+        $filesMaster = $this->getMock('Parsingcorner\FilesBundle\Model\FileMaster');
         $this->_removeFile($filesMaster, false);
 
         return new FilesHandler($filesMaster, $this->_filesEntitiesBuilder);

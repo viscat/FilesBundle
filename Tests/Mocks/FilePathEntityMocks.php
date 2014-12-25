@@ -1,11 +1,8 @@
 <?php
 
-namespace Kolekti\FilesBundle\Tests\Mocks;
+namespace Parsingcorner\FilesBundle\Tests\Mocks;
 
-use Kolekti\FilesBundle\Entity\FilePath;
-
-use Kolekti\FilesBundle\Tests\Mocks\FileNameEntityMocks;
-use Kolekti\FilesBundle\Tests\Mocks\PathEntityMocks;
+use Parsingcorner\FilesBundle\Entity\FilePath;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

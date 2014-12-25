@@ -1,8 +1,8 @@
 <?php
 
-namespace Kolekti\FilesBundle\Entity;
+namespace Parsingcorner\FilesBundle\Entity;
 
-use Kolekti\AttributeValidationBundle\Model\AttributeValidator;
+use Parsingcorner\AttributeValidationBundle\Model\AttributeValidator;
 
 /**
  * Entity to describe a filesystem file
@@ -21,15 +21,26 @@ class FileName
 	 */
 	private $_extension;
 
-	/**
+    /**
+     * @var AttributeValidator
+     */
+    private $_validator;
+
+    function __construct()
+    {
+        $this->_validator = AttributeValidator::getInstance(__DIR__);
+    }
+
+
+    /**
 	 * Set _baseName	
 	 * @param string $baseName File base name (without extension)
-	 * @return File
+	 * @return FileName
 	 */
 	public function setBaseName($baseName)
 	{
 		$this->_baseName = $baseName;
-		AttributeValidator::validateAttributes($this);
+		$this->_validator->validateAttributes($this);
 
 		return $this;
 	}
@@ -46,12 +57,12 @@ class FileName
 	/**
 	 * Set _extension
 	 * @param string $extension File extension (without dot)
-	 * @return File
+	 * @return FileName
 	 */
 	public function setExtension($extension)
 	{
 		$this->_extension = $extension;
-		AttributeValidator::validateAttributes($this);
+        $this->_validator->validateAttributes($this);
 
 		return $this;
 	}

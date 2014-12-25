@@ -1,11 +1,12 @@
 <?php
 
-namespace Kolekti\FilesBundle\Model;
+namespace Parsingcorner\FilesBundle\Model;
 
-use Kolekti\FilesBundle\Exception\PathHandlerException as Exception;
+use Parsingcorner\FilesBundle\Exception\PathHandlerException as Exception;
 
-use Kolekti\FilesBundle\Model\PathMaster;
-use Kolekti\FilesBundle\Entity\Path;
+use Parsingcorner\FilesBundle\Exception\PathHandlerException;
+use Parsingcorner\FilesBundle\Model\PathMaster;
+use Parsingcorner\FilesBundle\Entity\Path;
 
 /**
  * Model to handle the filesystem directory interaction
@@ -29,7 +30,7 @@ class PathHandler
 	 * Creates a directory recursively
 	 * 
 	 * @param  Path   $path
-	 * @throws \Kolekti\FilesBundle\Exception\PathHandlerException if cannot create the directory
+	 * @throws PathHandlerException if cannot create the directory
 	 * @return bool Create confirmation
 	 */
 	public function createDirectoryRecursively(Path $path)
@@ -57,7 +58,7 @@ class PathHandler
 	 * Scan a directory to get the files and directories list
 	 * 
 	 * @param  Path   $path
-	 * @throws \Kolekti\FilesBundle\Exception\PathHandlerException if cannot scan the path
+	 * @throws \FilesBundle\Exception\PathHandlerException if cannot scan the path
 	 * @return array
 	 */
 	public function scanPath(Path $path)

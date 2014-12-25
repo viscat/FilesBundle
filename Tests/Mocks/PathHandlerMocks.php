@@ -1,8 +1,8 @@
 <?php
 
-namespace Kolekti\FilesBundle\Tests\Mocks;
+namespace Parsingcorner\FilesBundle\Tests\Mocks;
 
-use Kolekti\FilesBundle\Entity\Path;
+use Parsingcorner\FilesBundle\Entity\Path;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
@@ -12,7 +12,7 @@ class PathHandlerMocks extends WebTestCase
 
     public function __construct()
     {
-        $this->_pathHandlerBaseMock = $this->getMockBuilder('Kolekti\FilesBundle\Model\PathHandler')
+        $this->_pathHandlerBaseMock = $this->getMockBuilder('Parsingcorner\FilesBundle\Model\PathHandler')
                                            ->disableOriginalConstructor()
                                            ->getMock();
     }

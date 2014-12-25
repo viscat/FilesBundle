@@ -1,6 +1,6 @@
 <?php
 
-namespace Kolekti\FilesBundle\Exception;
+namespace Parsingcorner\FilesBundle\Exception;
 
 class PathHandlerException extends \Exception
 {

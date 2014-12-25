@@ -1,11 +1,11 @@
 <?php
 
-namespace Kolekti\FilesBundle\Model;
+namespace Parsingcorner\FilesBundle\Model;
 
-use Kolekti\FilesBundle\Entity\FileName;
-use Kolekti\FilesBundle\Entity\FilePath;
-use Kolekti\FilesBundle\Entity\Path;
-use Kolekti\FilesBundle\Exception\FilesHandlerException;
+use Parsingcorner\FilesBundle\Entity\FileName;
+use Parsingcorner\FilesBundle\Entity\FilePath;
+use Parsingcorner\FilesBundle\Entity\Path;
+use Parsingcorner\FilesBundle\Exception\FilesHandlerException;
 
 /**
  * CRUD model to work with filesystem
@@ -89,7 +89,7 @@ class FilesHandler
     /**
      * BuildFilePathAndRead
      * @param  String $path
-     * @return Kolekti\FilesBundle\Entity\FilePath $filePath
+     * @return FilePath $filePath
      */
     public function buildFilePathAndRead($path)
     {

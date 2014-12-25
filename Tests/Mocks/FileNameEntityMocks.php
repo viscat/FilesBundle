@@ -1,8 +1,8 @@
 <?php
 
-namespace Kolekti\FilesBundle\Tests\Mocks;
+namespace Parsingcorner\FilesBundle\Tests\Mocks;
 
-use Kolekti\FilesBundle\Entity\FileName;
+use Parsingcorner\FilesBundle\Entity\FileName;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

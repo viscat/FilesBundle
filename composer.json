@@ -6,8 +6,8 @@
     "description": "Symfony2 Bundle to handle files",
     "keywords": ["symfony2","bundle","files"],
     "autoload": {
-        "psr-0": {
-            "": ""
+        "psr-4": {
+            "Parsingcorner\\FilesBundle\\": ""
         }
     },
     "authors": [
@@ -16,13 +16,22 @@
             "email": "parsingcorner@trovit.com"
         }
     ],
+    "repositories": [
+        {
+            "type":"git",
+            "url": "https://github.com/viscat/attribute-validation-bundle.git"
+        }
+    ],
     "require": {
         "php": "5.5.*",
-        "symfony/framework-bundle": "2.3.*"
+        "symfony/framework-bundle": "2.6.*",
+        "symfony/finder": "2.6.*",
+        "parsingcorner/attribute-validation-symfony2-bundle": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "4.1.*",
         "phpunit/php-invoker": "*",
+        "symfony/browser-kit": "2.6.*"
     },
     "config": {
         "bin-dir": "bin"

@@ -1,10 +1,7 @@
 <?php
 
-namespace Kolekti\FilesBundle\Tests\Mocks;
+namespace Parsingcorner\FilesBundle\Tests\Mocks;
 
-use Kolekti\FilesBundle\Tests\Mocks\FileNameEntityMocks;
-use Kolekti\FilesBundle\Tests\Mocks\PathEntityMocks;
-use Kolekti\FilesBundle\Tests\Mocks\FilePathEntityMocks;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
@@ -24,7 +21,7 @@ class FilesHandlerMocks extends WebTestCase
 
     private function _initBaseMock()
     {
-        $this->_filesHandlerBaseMock = $this->getMockBuilder('Kolekti\FilesBundle\Model\FilesHandler')
+        $this->_filesHandlerBaseMock = $this->getMockBuilder('Parsingcorner\FilesBundle\Model\FilesHandler')
                                             ->disableOriginalConstructor()
                                             ->getMock();
     }

@@ -1,8 +1,7 @@
 <?php
 
-namespace Kolekti\FilesBundle\Tests\Mocks;
+namespace Parsingcorner\FilesBundle\Tests\Mocks;
 
-use Kolekti\FilesBundle\Entity\Path;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
@@ -12,7 +11,7 @@ class PathMasterMocks extends WebTestCase
 
     public function __construct()
     {
-        $this->_pathMasterBaseMock = $this->getMockBuilder('Kolekti\FilesBundle\Model\PathMaster')
+        $this->_pathMasterBaseMock = $this->getMockBuilder('Parsingcorner\FilesBundle\Model\PathMaster')
                                           ->disableOriginalConstructor()
                                           ->getMock();
     }

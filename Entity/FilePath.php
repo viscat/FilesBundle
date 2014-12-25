@@ -1,11 +1,9 @@
 <?php
 
-namespace Kolekti\FilesBundle\Entity;
+namespace Parsingcorner\FilesBundle\Entity;
 
-use Kolekti\FilesBundle\Entity\Path;
-use Kolekti\FilesBundle\Entity\FileName;
 
-use Kolekti\AttributeValidationBundle\Model\AttributeValidator;
+use Parsingcorner\AttributeValidationBundle\Model\AttributeValidator;
 
 /**
  * Entity to describe a filesystem filepath
@@ -13,12 +11,12 @@ use Kolekti\AttributeValidationBundle\Model\AttributeValidator;
 class FilePath
 {
 	/**
-	 * @var Kolekti\FilesBundle\Entity\Path
+	 * @var FilePath
 	 */
 	private $_path;
 
 	/**
-	 * @var Kolekti\FilesBundle\Entity\FileName
+	 * @var FileName
 	 */
 	private $_fileName;
 
@@ -63,6 +61,16 @@ class FilePath
 	 * @var string
 	 */
 	private $_content;
+
+    /**
+     * @var AttributeValidator
+     */
+    private $_validator;
+
+    function __construct()
+    {
+        $this->_validator = AttributeValidator::getInstance(__DIR__);
+    }
 
 	/**
 	 * Set _fullFilePath
@@ -136,7 +144,7 @@ class FilePath
 	public function setSize($size)
 	{
 		$this->_size = $size;
-		AttributeValidator::validateAttributes($this);
+        $this->_validator->validateAttributes($this);
 
 		return $size;
 	}

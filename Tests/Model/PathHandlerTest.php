@@ -1,18 +1,17 @@
 <?php
 
-namespace Kolekti\FilesBundle\Tests\Model;
+namespace Parsingcorner\FilesBundle\Tests\Model;
 
-use Kolekti\FilesBundle\Model\PathHandler;
-use Kolekti\FilesBundle\Tests\Mocks\PathEntityMocks;
-use Kolekti\FilesBundle\Tests\Mocks\PathMasterMocks;
+use Parsingcorner\FilesBundle\Model\PathHandler;
+use Parsingcorner\FilesBundle\Tests\Mocks\PathEntityMocks;
+use Parsingcorner\FilesBundle\Tests\Mocks\PathMasterMocks;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-
-class PathHandlerTest extends WebTestCase
+class PathHandlerTest extends IntegrationWebTestCase
 {
 
     private $_pathMasterMocks;
     private $_pathHandlerService;
+
 
     protected function setUp()
     {
@@ -30,7 +29,7 @@ class PathHandlerTest extends WebTestCase
     }
 
     /**
-     * @expectedException \Kolekti\FilesBundle\Exception\PathHandlerException
+     * @expectedException \Parsingcorner\FilesBundle\Exception\PathHandlerException
      */
     public function testCreateDirectoryRecursivelyKo()
     {
@@ -48,7 +47,7 @@ class PathHandlerTest extends WebTestCase
     }
 
     /**
-     * @expectedException \Kolekti\FilesBundle\Exception\PathHandlerException
+     * @expectedException \Parsingcorner\FilesBundle\Exception\PathHandlerException
      */
     public function testScanPathKo()
     {

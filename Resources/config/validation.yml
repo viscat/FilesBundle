@@ -1,0 +1,42 @@
+Parsingcorner\FilesBundle\Entity\Path:
+    properties:
+        _path:
+            - NotBlank: ~
+            - Type: string
+            - Regex:
+                pattern: '/\/$/'
+                match:   true
+                message: Path must end with an slash
+            - Regex:
+                pattern: '/^\//'
+                match:   true
+                message: Path must be absolute
+        _depth:
+            - Type: integer
+            - GreaterThanOrEqual:
+                value: 0
+
+Parsingcorner\FilesBundle\Entity\FileName:
+    properties:
+        _baseName:
+            - NotBlank: ~
+            - Type: string
+            - Regex:
+                pattern: '/[\.\/]/'
+                match:   false
+                message: File basename cannot contain dots nor slashes
+        _extension:
+            - Type: string
+            - Regex:
+                pattern: '/^\./'
+                match:   false
+                message: Extension cannot has the initial dot
+            - Regex:
+                pattern: '/\//'
+                match:   false
+                message: File basename cannot contain slashes
+
+Parsingcorner\FilesBundle\Entity\FilePath:
+    properties:
+        _size:
+            - Type: integer

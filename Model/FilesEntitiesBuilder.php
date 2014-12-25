@@ -1,12 +1,12 @@
 <?php
 
-namespace Kolekti\FilesBundle\Model;
+namespace Parsingcorner\FilesBundle\Model;
 
-use Kolekti\FilesBundle\Entity\Path;
-use Kolekti\FilesBundle\Entity\FileName;
-use Kolekti\FilesBundle\Entity\FilePath;
+use Parsingcorner\FilesBundle\Entity\Path;
+use Parsingcorner\FilesBundle\Entity\FileName;
+use Parsingcorner\FilesBundle\Entity\FilePath;
 
-use Kolekti\FilesBundle\Exception\FilesEntitesBuilderException as Exception;
+use Parsingcorner\FilesBundle\Exception\FilesEntitesBuilderException as Exception;
 
 /**
  * Model to build proper file enties from strings
@@ -148,7 +148,7 @@ class FilesEntitiesBuilder
 	 * @param  string $filePath
 	 * @return array 1st position -> path
 	 *               2nd position -> filename
-     * @throws DataSourceFilePositionNameException
+     * @throws Exception
 	 */
 	private function _getFilePathParts($filePath)
 	{

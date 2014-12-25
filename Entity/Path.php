@@ -1,8 +1,8 @@
 <?php
 
-namespace Kolekti\FilesBundle\Entity;
+namespace Parsingcorner\FilesBundle\Entity;
 
-use Kolekti\AttributeValidationBundle\Model\AttributeValidator;
+use Parsingcorner\AttributeValidationBundle\Model\AttributeValidator;
 
 /**
  * Entity to describe a filesystem path
@@ -23,6 +23,16 @@ class Path
 	 */
 	private $_depth;
 
+    /**
+     * @var AttributeValidator
+     */
+    private $_validator;
+
+    function __construct()
+    {
+        $this->_validator = AttributeValidator::getInstance(__DIR__);
+    }
+
 	/**
 	 * Set path and depth in one method to proper validation
 	 * 
@@ -35,7 +45,7 @@ class Path
 	{
 		$this->_setPath($path);
 		$this->_setDepth($depth);
-        AttributeValidator::validateAttributes($this);
+        $this->_validator->validateAttributes($this);
 
 		return $this;
 	}
